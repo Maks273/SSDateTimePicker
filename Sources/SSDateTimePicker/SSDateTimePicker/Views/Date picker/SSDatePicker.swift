@@ -114,7 +114,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
     private var daysOfWeekView: some View {
         HStack(spacing: SSPickerConstants.horizontalSpacingDates) {
             ForEach(calendar.shortWeekdaySymbols, id: \.self) { dayOfWeek in
-                Text(dayOfWeek.prefix(1))
+                Text(dayOfWeek)
                     .font(weekdayTextFont)
                     .frame(width: SSPickerConstants.widthForDaysOfWeek)
                     .foregroundColor(weekdayTextColor)
