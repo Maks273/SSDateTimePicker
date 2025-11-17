@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SSLocalizedString {
+public class SSLocalizedString {
     
     static let ok = "Ok".localized()
     static let cancel = "Cancel".localized()
