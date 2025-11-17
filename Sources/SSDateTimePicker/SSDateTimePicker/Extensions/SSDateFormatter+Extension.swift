@@ -41,6 +41,10 @@ extension DateFormatter {
     static func configure(with formate: String) -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = formate
+        if let languageCode = Bundle.main.preferredLocalizations.first {
+            let locale = Locale(identifier: languageCode)
+            print(locale.identifier)
+        }
         return formatter
     }
     
