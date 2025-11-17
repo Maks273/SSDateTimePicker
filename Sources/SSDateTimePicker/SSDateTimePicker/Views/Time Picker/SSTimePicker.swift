@@ -147,14 +147,14 @@ public struct SSTimePicker: View, TimePickerConfigurationDirectAccess {
     }
     
     private var btnCancel: some View {
-//        Button {
-//            withAnimation {
-//                self.actionCancel()
-//            }
-//        } label: {
+        Button {
+            withAnimation {
+                self.actionCancel()
+            }
+        } label: {
             Text("Cancel", bundle: .module)
-//                .themeButton(buttonsForegroundColor, buttonFont)
-//        }
+                .themeButton(buttonsForegroundColor, buttonFont)
+        }
     }
     
     private var btnOk: some View {
