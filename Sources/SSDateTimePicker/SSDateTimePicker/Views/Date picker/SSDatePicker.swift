@@ -204,7 +204,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                 self.actionCancel()
             }
         } label: {
-            Text(SSLocalizedString.cancel)
+            Text("Cancel", bundle: .module)
                 .themeButton(buttonsForegroundColor, buttonsFont)
         }
     }
@@ -215,7 +215,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                 self.actionOk()
             }
         } label: {
-            Text(SSLocalizedString.ok)
+            Text("Ok", bundle: .module)
                 .themeButton(buttonsForegroundColor, buttonsFont)
         }
     }

@@ -74,7 +74,7 @@ public struct SSTimePicker: View, TimePickerConfigurationDirectAccess {
     
     private var lblSelectedDate: some View {
         VStack(alignment: .leading, spacing: SSPickerConstants.verticleSpacingTen) {
-            Text(SSLocalizedString.selectTime)
+            Text("Select Time", bundle: .module)
                 .font(headerTitleFont)
                 .foregroundColor(headerTitleColor)
             textFieldHourMinutes
@@ -103,7 +103,7 @@ public struct SSTimePicker: View, TimePickerConfigurationDirectAccess {
             ToolbarItem(placement: .keyboard) {
                 HStack {
                     Spacer()
-                    Button(SSLocalizedString.done) {
+                    Button("Done") {
                         actionDone()
                     }
                 }
@@ -124,7 +124,7 @@ public struct SSTimePicker: View, TimePickerConfigurationDirectAccess {
                 timePickerManager.selectedTimeFromat = .am
             }
         } label: {
-            labelTimeFormat(SSLocalizedString.am, isSelected: timePickerManager.selectedTimeFromat == .am)
+            labelTimeFormat("AM", isSelected: timePickerManager.selectedTimeFromat == .am)
         }
     }
     
@@ -134,7 +134,7 @@ public struct SSTimePicker: View, TimePickerConfigurationDirectAccess {
                 timePickerManager.selectedTimeFromat = .pm
             }
         } label: {
-            labelTimeFormat(SSLocalizedString.pm, isSelected: timePickerManager.selectedTimeFromat == .pm)
+            labelTimeFormat("PM", isSelected: timePickerManager.selectedTimeFromat == .pm)
         }
     }
     
@@ -152,7 +152,7 @@ public struct SSTimePicker: View, TimePickerConfigurationDirectAccess {
                 self.actionCancel()
             }
         } label: {
-            Text(SSLocalizedString.cancel)
+            Text("Cancel", bundle: .module)
                 .themeButton(buttonsForegroundColor, buttonFont)
         }
     }
@@ -163,19 +163,20 @@ public struct SSTimePicker: View, TimePickerConfigurationDirectAccess {
                 self.actionOk()
             }
         } label: {
-            Text(SSLocalizedString.ok)
+            Text("Ok", bundle: .module)
                 .themeButton(buttonsForegroundColor, buttonFont)
         }
     }
     
     private func labelTimeFormat(_ format: String, isSelected: Bool) -> some View {
-        Text(format)
+        let localizedString = NSLocalizedString(format, bundle: .module, comment: "")
+        
+        return Text(localizedString)
             .font(isSelected ? selectedTimeFormatFont : timeFormatFont)
             .foregroundColor(isSelected ? timeFormatSelectionColor : timeFormatColor)
             .transition(.scale)
             .animation(.easeIn, value: isSelected)
     }
-    
 }
 
 extension SSTimePicker {
