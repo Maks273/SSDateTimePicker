@@ -41,6 +41,9 @@ extension DateFormatter {
     static func configure(with formate: String) -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = formate
+        print(Locale.current)
+        print(Bundle.main.bundleURL)
+        print(Bundle.main)
         return formatter
     }
     
