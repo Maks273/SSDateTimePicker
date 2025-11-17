@@ -101,7 +101,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
     
     private var lblSelectedDate: some View {
         VStack(alignment: .leading, spacing: SSPickerConstants.verticleSpacingTen) {
-            Text(SSLocalizedString.selectDate)
+            Text("Select Date", bundle: .module)
                 .font(headerTitleFont)
                 .foregroundColor(headerTitleColor)
             Text(datePickerManager.selectedDate?.formatedString(headerDateFormat) ?? datePickerManager.currentMonth.monthYear)
