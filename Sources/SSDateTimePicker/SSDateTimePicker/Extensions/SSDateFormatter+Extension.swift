@@ -20,6 +20,7 @@ extension DateFormatter {
     /// ```
     static var monthsList: [String] {
         let formatter = DateFormatter()
+        formatter.locale = SSLocalisation.locale ?? Locale.autoupdatingCurrent
         let months = formatter.monthSymbols
         return months ?? []
     }
@@ -41,6 +42,7 @@ extension DateFormatter {
     static func configure(with formate: String) -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = formate
+        formatter.locale = SSLocalisation.locale ?? Locale.autoupdatingCurrent
         return formatter
     }
     

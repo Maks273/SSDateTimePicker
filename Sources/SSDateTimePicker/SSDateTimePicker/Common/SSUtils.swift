@@ -77,3 +77,7 @@ extension Font {
     static let timeFormat: Font = .system(size: Size.timeFormat, weight: .bold)
     static let selectedTimeFormat: Font = .system(size: Size.selectedTimeFormat, weight: .bold)
 }
+
+public struct SSLocalisation {
+    public static var locale: Locale?
+}

@@ -101,7 +101,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
     
     private var lblSelectedDate: some View {
         VStack(alignment: .leading, spacing: SSPickerConstants.verticleSpacingTen) {
-            Text(SSLocalizedString.selectDate)
+            Text("Select Date", bundle: .module)
                 .font(headerTitleFont)
                 .foregroundColor(headerTitleColor)
             Text(datePickerManager.selectedDate?.formatedString(headerDateFormat) ?? datePickerManager.currentMonth.monthYear)
@@ -114,7 +114,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
     private var daysOfWeekView: some View {
         HStack(spacing: SSPickerConstants.horizontalSpacingDates) {
             ForEach(calendar.shortWeekdaySymbols, id: \.self) { dayOfWeek in
-                Text(dayOfWeek.prefix(1))
+                Text(dayOfWeek)
                     .font(weekdayTextFont)
                     .frame(width: SSPickerConstants.widthForDaysOfWeek)
                     .foregroundColor(weekdayTextColor)
@@ -204,7 +204,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                 self.actionCancel()
             }
         } label: {
-            Text(SSLocalizedString.cancel)
+            Text("Cancel", bundle: .module)
                 .themeButton(buttonsForegroundColor, buttonsFont)
         }
     }
@@ -215,7 +215,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                 self.actionOk()
             }
         } label: {
-            Text(SSLocalizedString.ok)
+            Text("Ok", bundle: .module)
                 .themeButton(buttonsForegroundColor, buttonsFont)
         }
     }
