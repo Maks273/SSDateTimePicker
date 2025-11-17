@@ -24,7 +24,7 @@ extension String {
     ///
     /// - Returns: A localized version of the string.
     func localized(withComment comment: String = "") -> String {
-        return NSLocalizedString(self, bundle: .module, comment: comment)
+        return NSLocalizedString(self, comment: comment)
     }
     
 }
