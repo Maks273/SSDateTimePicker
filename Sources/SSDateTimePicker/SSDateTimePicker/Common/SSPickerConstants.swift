@@ -16,7 +16,7 @@ let screen = UIScreen.main.bounds
 struct SSPickerConstants {
     
     static let pickerViewWidth: CGFloat = screen.width - (pickerLeadingTrailing*2)
-    static let pickerViewInnerPadding: CGFloat = 8
+    static let pickerViewInnerPadding: CGFloat = 24
     static let pickerLeadingTrailing: CGFloat = 40
     static let bottomButtonHSpacing: CGFloat = 5
     static let widthForDaysOfWeek: CGFloat =  (pickerViewWidth - (pickerViewInnerPadding*2)) / 7
