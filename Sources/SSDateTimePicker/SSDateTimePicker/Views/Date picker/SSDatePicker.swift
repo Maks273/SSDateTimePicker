@@ -75,9 +75,8 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
     
     private var calenderContainerView: some View {
         VStack(alignment: .leading, spacing: SSPickerConstants.verticleSpacingTen) {
-            datePickerHeader
-            pickerContainerView
             calenderFooterView
+            pickerContainerView
             bottomButtons
         }
         .padding(SSPickerConstants.pickerViewInnerPadding)
@@ -186,14 +185,14 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
     
     private func imageNextPrev(_ name: String) -> some View {
         Image(systemName: name)
-            .foregroundColor(buttonsForegroundColor)
+            .foregroundColor(Color(red: 129/255, green: 130/255, blue: 132/255))
             .padding(SSPickerConstants.paddingFive)
     }
     
     private var bottomButtons: some View {
         HStack(spacing: SSPickerConstants.bottomButtonHSpacing) {
-            Spacer()
             btnCancel
+            Spacer()
             btnOk
         }
     }
@@ -205,7 +204,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
             }
         } label: {
             Text("Cancel", bundle: .module)
-                .themeButton(buttonsForegroundColor, buttonsFont)
+                .themeButton(Color.black, buttonsFont)
         }
     }
     
@@ -215,8 +214,12 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                 self.actionOk()
             }
         } label: {
-            Text("Ok", bundle: .module)
-                .themeButton(buttonsForegroundColor, buttonsFont)
+            Text("Choose", bundle: .module)
+                .themeButton(Color.white, buttonsFont)
+                .padding(.vertical, 14)
+                .padding(.horizontal, 20)
+                .background(buttonsForegroundColor)
+                .clipShape(RoundedRectangle(cornerRadius: 14))
         }
     }
     
