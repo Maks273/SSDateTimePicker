@@ -73,7 +73,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
     }
     
     private var calenderContainerView: some View {
-        VStack(alignment: .leading, spacing: SSPickerConstants.verticleSpacingTen) {
+        VStack(alignment: .leading, spacing: 22) {
             calenderFooterView
             pickerContainerView
             bottomButtons
