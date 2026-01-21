@@ -52,8 +52,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                 calenderContainerView
                     .background(pickerBackgroundColor)
                     .cornerRadius(pickerViewRadius)
-                    .padding(.leading, SSPickerConstants.pickerLeadingTrailing)
-                    .padding(.trailing, SSPickerConstants.pickerLeadingTrailing)
+                    .padding(.all, 24)
                     .compositingGroup()
             }
         }
@@ -204,7 +203,10 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
             }
         } label: {
             Text("Cancel", bundle: .module)
-                .themeButton(Color.black, buttonsFont)
+                .font(buttonsFont)
+                .foregroundColor(Color.black)
+                .padding(.vertical, 14)
+                .padding(.horizontal, 20)
         }
     }
     
@@ -215,7 +217,8 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
             }
         } label: {
             Text("Choose", bundle: .module)
-                .themeButton(Color.white, buttonsFont)
+                .font(buttonsFont)
+                .foregroundColor(Color.white)
                 .padding(.vertical, 14)
                 .padding(.horizontal, 20)
                 .background(buttonsForegroundColor)
