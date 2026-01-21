@@ -50,10 +50,9 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                         actionCancel()
                     }
                 calenderContainerView
-//
                     .background(pickerBackgroundColor)
                     .cornerRadius(pickerViewRadius)
-                    .padding(.all, 24)
+                    .padding(.horizontal, SSPickerConstants.pickerLeadingTrailing)
                     .compositingGroup()
             }
         }
