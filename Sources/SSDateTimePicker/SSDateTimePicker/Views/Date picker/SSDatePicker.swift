@@ -150,6 +150,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                 .font(currentMonthYearBottomLabelFont)
                 .foregroundColor(monthYearNavigationLabelColor)
         }
+        .buttonStyle(.plain)
     }
     
     private var currentMonthYear: String {
@@ -172,6 +173,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
         } label: {
             self.imageNextPrev(SSImageConstant.chevronLeft)
         }
+        .buttonStyle(.plain)
     }
     
     private var btnNext: some View {
@@ -180,6 +182,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
         } label: {
             self.imageNextPrev(SSImageConstant.chevronRight)
         }
+        .buttonStyle(.plain)
     }
     
     private func imageNextPrev(_ name: String) -> some View {
@@ -208,6 +211,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                 .padding(.vertical, 14)
                 .padding(.horizontal, 20)
         }
+        .buttonStyle(.plain)
     }
     
     private var btnOk: some View {
@@ -224,6 +228,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
                 .background(buttonsForegroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 14))
         }
+        .buttonStyle(.plain)
     }
     
     private func updateView() {
