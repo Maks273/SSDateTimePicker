@@ -33,6 +33,12 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
             matching: calendar.firstDayOfEveryWeek)
     }
     
+    private var weekdaySymbols: [String] {
+        let symbols = calendar.shortWeekdaySymbols
+        let firstIndex = calendar.firstWeekday - 1
+        return Array(symbols[firstIndex...] + symbols[..<firstIndex])
+    }
+    
     //MARK: - Initializer
     
     public init(showDatePicker: Binding<Bool>) {
@@ -111,7 +117,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
     
     private var daysOfWeekView: some View {
         HStack(spacing: SSPickerConstants.horizontalSpacingDates) {
-            ForEach(calendar.shortWeekdaySymbols, id: \.self) { dayOfWeek in
+            ForEach(weekdaySymbols, id: \.self) { dayOfWeek in
                 Text(dayOfWeek)
                     .font(weekdayTextFont)
                     .frame(width: SSPickerConstants.widthForDaysOfWeek)
@@ -189,6 +195,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
         Image(systemName: name)
             .foregroundColor(Color(red: 129/255, green: 130/255, blue: 132/255))
             .padding(SSPickerConstants.paddingFive)
+            .flipsForRightToLeftLayoutDirection(true)
     }
     
     private var bottomButtons: some View {
@@ -197,6 +204,7 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
             Spacer()
             btnOk
         }
+        .environment(\.layoutDirection, .leftToRight)
     }
     
     private var btnCancel: some View {
