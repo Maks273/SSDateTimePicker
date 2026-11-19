@@ -120,6 +120,8 @@ public struct SSDatePicker: View, DatePickerConfigurationDirectAccess {
             ForEach(weekdaySymbols, id: \.self) { dayOfWeek in
                 Text(dayOfWeek)
                     .font(weekdayTextFont)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.3)
                     .frame(width: SSPickerConstants.widthForDaysOfWeek)
                     .foregroundColor(weekdayTextColor)
             }

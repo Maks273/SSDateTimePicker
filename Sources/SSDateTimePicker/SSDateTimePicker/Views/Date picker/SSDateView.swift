@@ -131,6 +131,8 @@ struct SSDateView: View, DatePickerConfigurationDirectAccess {
         Text(numericDay)
             .font(dateTextFont)
             .foregroundColor(foregroundColor)
+            .lineLimit(1)
+            .minimumScaleFactor(0.3)
             .frame(width: SSPickerConstants.widthForDaysOfWeek, height: SSPickerConstants.widthForDaysOfWeek)
             .if(!allowRangeSelection && isDaySelectableAndInRange, transform: { view in
                 view

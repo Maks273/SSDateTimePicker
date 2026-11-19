@@ -58,6 +58,7 @@ public struct SSYearSelectionView: View, DatePickerConfigurationDirectAccess {
                 .font(isSelectedYear ? selectedYearTextFont : yearTextFont)
                 .foregroundColor(isSelectedYear ? selectionBackgroundColor : dateMonthYearTextColor)
         }
+        .buttonStyle(.plain)
     }
     
     //MARK: - Methods

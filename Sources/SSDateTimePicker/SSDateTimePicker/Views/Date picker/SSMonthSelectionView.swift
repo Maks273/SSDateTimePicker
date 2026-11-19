@@ -49,7 +49,10 @@ struct SSMonthSelectionView: View, DatePickerConfigurationDirectAccess {
             Text(monthName)
                 .font(isSelectedMonth ? selectedMonthTextFont : monthTextFont)
                 .foregroundColor(isSelectedMonth ? selectionBackgroundColor : dateMonthYearTextColor)
+                .lineLimit(1)
+                .minimumScaleFactor(0.3)
         }
+        .buttonStyle(.plain)
     }
     
     //MARK: - Methods
