@@ -40,7 +40,7 @@ final class SSDatePickerManager: ObservableObject, DatePickerConfigurationDirect
     @Published private(set) var yearRange = [Int]()
     
     /// The last known current month for canceling selection.
-    private var lastCurrentMonth: Date
+    var lastCurrentMonth: Date
     
     /// The last known selected date for canceling selection.
     private var lastSelectedDate: Date?

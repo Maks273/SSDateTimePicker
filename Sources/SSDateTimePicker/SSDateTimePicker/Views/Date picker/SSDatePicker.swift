@@ -541,6 +541,7 @@ extension SSDatePicker {
     public func currentMonth(_ date: Date) -> SSDatePicker {
         let picker = self
         picker.datePickerManager.currentMonth = date
+        picker.datePickerManager.lastCurrentMonth = date
         return picker
     }
     
