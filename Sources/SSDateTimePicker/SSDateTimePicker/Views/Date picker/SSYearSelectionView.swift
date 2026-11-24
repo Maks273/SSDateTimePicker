@@ -32,7 +32,7 @@ public struct SSYearSelectionView: View, DatePickerConfigurationDirectAccess {
             .padding(.top, SSPickerConstants.monthYearViewTopSpace)
             .padding(.bottom, SSPickerConstants.monthYearViewBottomSpace)
             .onAppear {
-                calendarManager.updateYearRange(year: (calendarManager.selectedDate ?? calendarManager.currentMonth).year(calendar))
+                calendarManager.updateYearRange(year: calendarManager.currentMonth.year(calendar))
             }
     }
     

@@ -74,7 +74,6 @@ final class SSDatePickerManager: ObservableObject, DatePickerConfigurationDirect
             currentMonth = currentMonth.getNextMonth(calendar) ?? currentMonth
         case .month:
             currentMonth = currentMonth.getNextYear(calendar) ?? currentMonth
-            updateYearSelection(date: currentMonth)
         case .year:
             guard let year = self.yearRange.last else { return }
             self.updateYearRange(year: year+12)
@@ -88,26 +87,20 @@ final class SSDatePickerManager: ObservableObject, DatePickerConfigurationDirect
             currentMonth = currentMonth.getPreviousMonth(calendar) ?? currentMonth
         case .month:
             currentMonth = currentMonth.getPreviousYear(calendar) ?? currentMonth
-            updateYearSelection(date: currentMonth)
         case .year:
             guard let year = self.yearRange.first else { return }
             self.updateYearRange(year: year-1)
         }
     }
 
-    /// Updates the year selection based on the chosen year.
-    func updateYearSelection(date: Date) {
-        updateYearSelection(year: date.year(calendar))
-    }
-
     /// Checks if a given month is currently selected in the date picker.
     func isSelected(_ month: String) -> Bool {
-        month.lowercased() == (selectedDate ?? currentMonth).fullMonth.lowercased()
+        month.lowercased() == currentMonth.fullMonth.lowercased()
     }
     
     /// Checks if a given year is currently selected in the date picker.
     func isSelected(_ year: Int) -> Bool {
-        year == (selectedDate ?? currentMonth).year(calendar)
+        year == currentMonth.year(calendar)
     }
     
     /// Updates the date selection based on the chosen date.
@@ -152,30 +145,16 @@ final class SSDatePickerManager: ObservableObject, DatePickerConfigurationDirect
     
     /// Updates the month selection based on the chosen month.
     func updateMonthSelection(month: Int) {
-        guard let selectedDate else {
-            var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self.currentMonth)
-            component.month = month
-            self.currentMonth = calendar.date(from: component) ?? currentMonth
-            return
-        }
-        var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: selectedDate)
+        var component = calendar.dateComponents([.year, .month], from: currentMonth)
         component.month = month
-        self.selectedDate = calendar.date(from: component)
-        self.currentMonth = self.selectedDate ?? currentMonth
+        currentMonth = calendar.date(from: component) ?? currentMonth
     }
     
     /// Updates the year selection based on the chosen year.
     func updateYearSelection(year: Int) {
-        guard let selectedDate else {
-            var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self.currentMonth)
-            component.year = year
-            self.currentMonth = calendar.date(from: component) ?? currentMonth
-            return
-        }
-        var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: selectedDate)
+        var component = calendar.dateComponents([.year, .month], from: currentMonth)
         component.year = year
-        self.selectedDate = calendar.date(from: component)
-        self.currentMonth = self.selectedDate ?? currentMonth
+        currentMonth = calendar.date(from: component) ?? currentMonth
     }
     
     /// Updates the displayed year range in the year selection view.
